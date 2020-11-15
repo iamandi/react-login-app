@@ -8,8 +8,8 @@ module.exports = (req, res, next) => {
     const token = bearer[1];
 
     try {
-      const payload = jwt.verify(token, "jwtPrivateKey");
-      req.user = payload;
+      const payload = jwt.verify(token, "jwtPrivateKey"); //// Here I am verifying token
+      req.user = payload; //// Here I am extracting USER's data out of the token
       next();
     } catch (err) {
       res.status(400).send({ error: "Invalid token." });

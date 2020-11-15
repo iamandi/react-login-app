@@ -19,7 +19,7 @@ router.post("/", validateWith(schema), (req, res) => {
 
   const token = jwt.sign(
     { userId: user.id, name: user.name, username: user.username },
-    "jwtPrivateKey"
+    "jwtPrivateKey" /// This a secret SALT known only to the server
   );
   res.send({
     id: user.id,
